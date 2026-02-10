@@ -21,13 +21,13 @@ def add_task(task):
     tasks = load_tasks()
     tasks.append({"task": task, "done": False})
     save_tasks(tasks)
-    print(f"✅ Task added: {task}")
+    print(f"Task added: {task}")
 
 # View all tasks
 def view_tasks():
     tasks = load_tasks()
     if not tasks:
-        print("📂 No tasks found.")
+        print(" No tasks found.")
         return
     print("\nYour To-Do List:")
     for i, t in enumerate(tasks, start=1):
@@ -40,9 +40,9 @@ def delete_task(index):
     if 0 < index <= len(tasks):
         removed = tasks.pop(index - 1)
         save_tasks(tasks)
-        print(f"🗑️ Task deleted: {removed['task']}")
+        print(f" Task deleted: {removed['task']}")
     else:
-        print("⚠️ Invalid task number!")
+        print(" Invalid task number!")
 
 # Mark a task as completed
 def mark_done(index):
@@ -52,7 +52,7 @@ def mark_done(index):
         save_tasks(tasks)
         print(f"✔️ Task marked as done: {tasks[index - 1]['task']}")
     else:
-        print("⚠️ Invalid task number!")
+        print(" Invalid task number!")
 
 # Main program loop
 def todo_app():
@@ -77,19 +77,20 @@ def todo_app():
                 index = int(input("Enter task number to delete: "))
                 delete_task(index)
             except ValueError:
-                print("⚠️ Please enter a valid number!")
+                print(" Please enter a valid number!")
         elif choice == "4":
             view_tasks()
             try:
                 index = int(input("Enter task number to mark as done: "))
                 mark_done(index)
             except ValueError:
-                print("⚠️ Please enter a valid number!")
+                print("Please enter a valid number!")
         elif choice == "5":
-            print("👋 Exiting To-Do List. Goodbye!")
+            print(" Exiting To-Do List. Goodbye!")
             break
         else:
-            print("⚠️ Invalid choice! Please try again.")
+            print("Invalid choice! Please try again.")
 
 # Run the app
 todo_app()
+
