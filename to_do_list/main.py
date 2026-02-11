@@ -31,7 +31,7 @@ def view_tasks():
         return
     print("\nYour To-Do List:")
     for i, t in enumerate(tasks, start=1):
-        status = "✔️ Done" if t["done"] else "❌ Not done"
+        status = "Done" if t["done"] else "❌ Not done"
         print(f"{i}. {t['task']} [{status}]")
 
 # Delete a task
@@ -50,7 +50,7 @@ def mark_done(index):
     if 0 < index <= len(tasks):
         tasks[index - 1]["done"] = True
         save_tasks(tasks)
-        print(f"✔️ Task marked as done: {tasks[index - 1]['task']}")
+        print(f" Task marked as done: {tasks[index - 1]['task']}")
     else:
         print(" Invalid task number!")
 
@@ -93,4 +93,5 @@ def todo_app():
 
 # Run the app
 todo_app()
+
 
